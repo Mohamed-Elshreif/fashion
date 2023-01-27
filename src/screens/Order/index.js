@@ -101,11 +101,11 @@ const OrderScreen = () => {
   }, [dispatch, navigate, id, successPay, successDeliver, order, userInfo]);
 
   const successPaymentHandler = (paymentResult) => {
-    dispatch(payOrder({ orderId, paymentResult }));
+    dispatch(payOrder({ id, paymentResult }));
   };
 
   const deliverHandler = () => {
-    dispatch(deliverOrder({ orderId }));
+    dispatch(deliverOrder({ id }));
   };
 
   return loading ? (
