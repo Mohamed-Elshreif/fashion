@@ -7,10 +7,9 @@ const API = process.env.REACT_APP_API_URL;
 
 const updateProfile = createAsyncThunk(
   "updateProfile/profile",
-  async (arg, thunkAPI) => {
+  async (user, thunkAPI) => {
     const { rejectWithValue, getState } = thunkAPI;
     try {
-      const { user } = arg;
       const {
         userLogin: { userInfo },
       } = getState();
@@ -20,6 +19,7 @@ const updateProfile = createAsyncThunk(
         user,
         config(token)
       );
+
       return data;
     } catch (error) {
       return rejectWithValue(errors(error));
